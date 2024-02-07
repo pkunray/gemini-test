@@ -3,7 +3,8 @@
 ## Project description
 In this project, we test gemini AI with multimodal prompts. The supported model is `gemini-pro-vision`.
 
-## Configure Google Cloud
+
+### Configure Google Cloud
 
 1. Complete the following configuration according to [Google Cloud Doc](https://cloud.google.com/vertex-ai/docs/start/cloud-environment).
 * Select a proper Google Cloud project
@@ -19,8 +20,24 @@ In this project, we test gemini AI with multimodal prompts. The supported model 
 npm install @google-cloud/aiplatform
 ```
 
+4. Configure your own google cloud service account credential in backend
 
-## API Cost, compare with ChatGPT
+```
+process.env.GOOGLE_APPLICATION_CREDENTIALS = 'Your Own Service Account Credential Path';
+```
+
+### Start the frontend
+
+```
+npm run serve
+```
+
+
+### Start the backend
+
+```
+node index.js
+```
 
 ## References
 1. [Send multimodal prompt requests with images](https://cloud.google.com/vertex-ai/docs/generative-ai/multimodal/send-multimodal-prompts#send_multimodal_prompt_requests_with_images)
