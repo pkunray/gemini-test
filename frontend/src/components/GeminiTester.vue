@@ -17,7 +17,12 @@
     <button @click="sendPrompt">Send Prompt</button>
     <div class="response-section">
       <p class="response-title">Answer:</p>
-      <pre v-html="formattedResponse"></pre>
+      <textarea class="resonse-text"
+        rows="50" 
+        cols="150"
+        v-model="serverResponse"
+        style="color: #df4807;"
+        placeholder="Waiting for the response..."></textarea>
     </div>
   </div>
 </template>
@@ -30,7 +35,7 @@ export default {
       previewImage: null,
       publicUrl: null,
       textInput: "",
-      serverResponse: "waiting for response...",
+      serverResponse: "",
     };
   },
   methods: {
@@ -80,22 +85,6 @@ export default {
       }
     },
   },
-  computed: {
-    formattedResponse() {
-      if (!this.serverResponse) return ""; 
-
-      const lines = this.serverResponse.split("\n").map(line => {
-        if (line.startsWith("**") && line.endsWith("**")) {
-          return `<strong>${line.slice(2, -2)}</strong>`;
-        } else if (line.startsWith("*")) {
-          return `<em>${line.slice(1)}</em>`;
-        } else {
-          return line;
-        }
-      });
-      return lines.join("<br>");
-    },
-  },
 };
 </script>
 
@@ -118,6 +107,9 @@ export default {
 }
 .response-title {
   font-weight: bold;
+  margin-bottom: 5px;
+}
+.response-text {
   margin-bottom: 5px;
 }
 .response-section {
