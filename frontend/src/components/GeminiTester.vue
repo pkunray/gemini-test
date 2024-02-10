@@ -18,8 +18,8 @@
     <div class="response-section">
       <p class="response-title">Answer:</p>
       <textarea class="resonse-text"
-        rows="50" 
-        cols="150"
+        rows="20" 
+        cols="100"
         v-model="serverResponse"
         style="color: #df4807;"
         placeholder="Waiting for the response..."></textarea>
